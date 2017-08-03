@@ -1,0 +1,37 @@
+@charset "utf-8";
+@import "../../../assets/scss/base/necessary";
+/*App.vue样式*/
+html, body, #homePage {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(237, 237, 237);
+  height: 100%;
+  width: 100%;
+  .top {
+    background-color: #ffffff;
+    height: 63px;
+    width: 100%;
+    padding: 0 5% 0 245px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
+    .title {
+      color:grey;
+      font-size: 20px;
+      line-height: 72px;
+    }
+    .user-name {
+      float: right;
+      line-height: 71px;
+      cursor: pointer;
+      color: #1D8CE0;
+      margin-right: 15px;
+    }
+    .icon-wode- {
+      font-size: 17px;
+    }
+  }
+  .Page {
+    max-height: 92.89%;
+    overflow-y: auto;
+  }
+}
