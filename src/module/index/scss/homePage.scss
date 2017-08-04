@@ -5,14 +5,16 @@ html, body, #homePage {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(237, 237, 237);
+  background-color: RGB(230,232,234);
   height: 100%;
+  overflow: hidden;
   width: 100%;
   .top {
     background-color: #ffffff;
+    float: left;
     height: 63px;
-    width: 100%;
-    padding: 0 5% 0 245px;
+    width: 82%;
+    padding: 0 5% 0 20px;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
     .title {
       color:grey;
@@ -23,7 +25,7 @@ html, body, #homePage {
       float: right;
       line-height: 71px;
       cursor: pointer;
-      color: #1D8CE0;
+      color: #13CE66;
       margin-right: 15px;
     }
     .icon-wode- {
@@ -31,7 +33,11 @@ html, body, #homePage {
     }
   }
   .Page {
-    max-height: 92.89%;
+    overflow: hidden;
+    max-height: 93%;
+    float: right;
     overflow-y: auto;
+    padding: 10px 20px;
+    width: 82%;
   }
 }

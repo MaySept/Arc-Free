@@ -10,6 +10,3 @@
     }
   }
 </script>
-<style>
-
-</style>

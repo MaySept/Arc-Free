@@ -11,11 +11,9 @@
 /*background lazyload style*/
 .bg_lazyload{
   &[lazy=loading]{
-    background:url(../images/icon/lazy_load_loading.png) scroll no-repeat center center important();
     background-size: px2rem(159) important();
   }
   &[lazy=error]{
-    background:url(../images/icon/lazy_load_fail.png) scroll no-repeat center center important();
     background-size: px2rem(138) important();
   }
   &[lazy=loaded]{
@@ -25,7 +23,6 @@
 /*img lazyload style*/
 .img_lazyload{
   &[lazy=loading]{
-      background:url(../images/icon/lazy_load_loading.png) scroll no-repeat center center important();
       background-size: px2rem(159) important();
   }
   &[lazy=error]{
@@ -57,7 +54,6 @@
       @extend .inline_block;
       @include px2px(width,32);
       @include px2px(height,32);
-      background: url(../../assets/images/icon/loading.gif) scroll no-repeat center center;
       @extend .contain;
       vertical-align: top;
       margin-right: px2rem(10);

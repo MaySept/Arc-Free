@@ -3,7 +3,7 @@
     <div class="sidebar-header">
       <el-row>
         <el-col :span="10">
-          <img src="../.././static/arc.png" alt="">
+          <img src="../../static/image/arc.png" alt="">
         </el-col>
         <el-col :span="14">
           <P>Are-Free-SDK</P>
@@ -86,34 +86,37 @@
 <style lang="scss">
   #sidebar {
     float: left;
-    width: 230px;
+    width: 18%;
     height: 100%;
     background-color: #324157;
     .sidebar-header {
       width: 100%;
       height: 63px;
+      overflow: hidden;
       background-color: #000000;
       padding: 13px 12px;
+      box-shadow: 0 3px 3px rgba(0, 250, 0, 0.05);
       img {
         width: 80px;
         height: 30px;
       }
       P {
-        color: #1D8CE0;
+        color: #ffffff;
         font-size: 17px;
         line-height: 45px;
       }
     }
     .el-menu {
       height: auto;
+      overflow: hidden;
       .iconfont {
         font-size: 18px;
         margin-right: 10px;
       }
     }
     .el-menu-item.is-active{
-      border-left:3px solid  #1D8CE0;
-      color: #1D8CE0;
+      border-left:3px solid  #13CE66;
+      color: #13CE66;
     }
   }
 </style>
