@@ -2,9 +2,10 @@
 @import "../../../assets/scss/base/necessary";
 /*App.vue样式*/
 html, body, #homePage {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 12px;
   background-color: RGB(230,232,234);
   height: 100%;
   overflow: hidden;
@@ -14,12 +15,15 @@ html, body, #homePage {
     float: left;
     height: 63px;
     width: 82%;
-    padding: 0 5% 0 20px;
+    padding: 0 5% 0 25px;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
     .title {
       color:grey;
-      font-size: 20px;
+      font-size: 18px;
       line-height: 72px;
+    }
+    .el-dropdown-menu {
+      z-index: 9999;
     }
     .user-name {
       float: right;
@@ -35,9 +39,22 @@ html, body, #homePage {
   .Page {
     overflow: hidden;
     max-height: 93%;
-    float: right;
     overflow-y: auto;
     padding: 10px 20px;
     width: 82%;
+  }
+  .el-table th>.cell {
+    font-size: 12px;
+  }
+  .border-top {
+    border-top: 2px solid #13CE66;
+    background-color: #ffffff;
+  }
+  .el-tabs__item {
+    font-size: 12px;
+    padding: 0 8px
+  }
+  .tab-charts {
+    padding: 10px 20px;
   }
 }

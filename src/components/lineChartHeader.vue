@@ -1,13 +1,15 @@
 <template>
   <div id="line-chart-header">
     <el-row>
-      <el-col :span="6">
+      <el-col :span="6" style="width: 200px" class="down-select">
         <el-row>
           <el-col :span="6">
             <span>{{titleSon}}</span>
           </el-col>
           <el-col :span="18">
-            <el-select v-model="trendValueSon" @change="selectChange" style="width: 125px;margin-top: 4px">
+            <el-select v-model="trendValueSon"
+                       @change="selectChange"
+                       style="width: 125px;margin-top: 3px;margin-left: 5px">
               <el-option
                 v-for="item in trendSon"
                 :key="item.value"
@@ -18,7 +20,8 @@
           </el-col>
         </el-row>
       </el-col>
-      <el-col :span="5" style="position: relative" class="time-select">
+
+      <el-col :span="6" style="position: relative" class="time-select">
         <div class="time-show">{{timeShow}}</div>
         <el-select v-model="timeRangeValueSon" >
           <el-option
@@ -28,6 +31,10 @@
             :value="item.value">
           </el-option>
         </el-select>
+      </el-col>
+
+      <el-col :span="6">
+        <slot name="titleSlot"></slot>
       </el-col>
     </el-row>
   </div>
@@ -74,8 +81,8 @@
 <style lang="scss">
   #line-chart-header {
     width: 100%;
-    height: 35px;
-    padding: 2px 20px;
+    height: 40px;
+    padding: 4px 20px;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.05);
     .el-col:nth-child(2) {
       float: right;
@@ -87,13 +94,16 @@
     .el-select .el-input__inner {
       height: 24px;
     }
+    .el-input {
+      font-size: 12px;
+    }
     .el-select {
       width: 170px;
     }
     .time-show {
       position: absolute;
-      z-index: 9999;
-      width: 130px;
+      z-index: 1000;
+      width: 135px;
       height: 16px;
       background-color: #ffffff;
       top: 4px;

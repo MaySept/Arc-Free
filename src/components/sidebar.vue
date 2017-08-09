@@ -6,7 +6,7 @@
           <img src="../../static/image/arc.png" alt="">
         </el-col>
         <el-col :span="14">
-          <P>Are-Free-SDK</P>
+          <P>Arc-Free-SDK</P>
         </el-col>
       </el-row>
     </div>

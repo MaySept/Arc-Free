@@ -3,11 +3,11 @@
     <div class="wrapper">
       <div class="container">
         <h1>Arc-SDK</h1>
-        <form class="form">
+        <div class="form">
           <input type="text" placeholder="Username" v-model="userName">
           <input type="password" placeholder="Password" v-model="password">
-          <button type="submit" id="login-button" @click.stop.prevent="loginBtn">Login</button>
-        </form>
+          <button type="submit" id="login-button" @click="loginBtn">Login</button>
+        </div>
       </div>
       <ul class="bg-bubbles">
         <li></li><li></li><li></li>
@@ -29,12 +29,12 @@
     },
     methods: {
       loginBtn() {
-                    api.GetLogin({user:this.userName, password:this.password}).then(function (data) {
+            /*        api.GetLogin({user:this.userName, password:this.password}).then(function (data) {
               console.log('成功')
             }).catch(function (error) {
               console.log('失败')
-            })
-        $('form').fadeOut(500);
+            })*/
+        $('.form').fadeOut(500);
 	      $('.wrapper').addClass('form-success');
 	      localStorage.setItem('user-name', this.userName)
         setTimeout(function () {
