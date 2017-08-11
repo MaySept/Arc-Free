@@ -10,9 +10,11 @@ import echarts from 'echarts'
 import 'element-ui/lib/theme-default/index.css'
 import '../../assets/scss/base/_necessary.scss'
 import './scss/homePage.scss'
+import API from '../.././vuex/api'
 import '../../assets/images/iconfont/iconfont.css'
 
 Vue.prototype.$Common = Common
+Vue.prototype.$API = API
 Vue.prototype.$echarts = echarts
 
 Vue.use(ElementUI)

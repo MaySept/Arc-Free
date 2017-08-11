@@ -1,19 +1,19 @@
 <template>
   <div id="Profile">
     <div class="number-box">
-      <span>10000</span>
+      <span>{{allDeveloper}}</span>
       <p>累计开发者</p>
       <div></div>
       <i>ArcSoft</i>
     </div>
     <div class="number-box">
-      <span>90000</span>
+      <span>{{allDownload}}</span>
       <p>累计下载量</p>
       <div></div>
       <i>ArcSoft</i>
     </div>
     <div class="number-box">
-      <span>270000</span>
+      <span>{{allCall}}</span>
       <p>累计调用量</p>
       <div></div>
       <i>ArcSoft</i>
@@ -115,6 +115,9 @@
   export default {
     data() {
       return {
+        allDeveloper: 10000,
+        allDownload: 28000,
+        allCall: 30000,
         downSelect: [{
           value: 1,
           label: 'ArcFace'
@@ -139,22 +142,40 @@
           name:"PhotoStyling",data:[2,3,4,5,6,7,6]
         }],
         title : 'xx折线图',
-        timeSlotArr: ['2017-1-2','2017-1-3','2017-1-4','2017-1-5','2017-1-6','2017-1-7',
+        timeSlotArr: ['2ds7-1-2','2017-1-3','2017-1-4','2017-1-5','2017-1-6','2017-1-7',
           '2017-1-8'],
         chartData:[{
-          name:'仅下载ArcFace',value:'100'
+          name:'仅下载ArcFace',value:100
         }, {
-          name:'仅下载PhotoStyling',value:'20'
+          name:'仅下载PhotoStyling',value:20
         }, {
-          name:'同时下载',value:'39'
+          name:'同时下载',value:39
         }, {
-          name:'无任何下载',value:'5'
+          name:'无任何下载',value:5
         }],
         chartData2:[{
-          name:'ArcFace v1.0',value:'100'
+          name:'ArcFace v1.0',value:100
         }, {
-          name:'PhotoStyling v1.0',value:'50'
+          name:'PhotoStyling v1.0',value:50
         }]
+      }
+    },
+    watch: {
+      trendValue(val) {
+        console.log('ssss')
+      },
+      timeRangeValue(val) {
+        if(val === 1) {
+          this.timeSlotArr = ['q','w','r','d','p','q','w','r','d','p','q','w','r','d','p','q','w','r','d','p','q','w',
+            'r','d','p','q','w','r','d','p','q','w','r','d','p','q','w','r','d','p',]
+          this.tabChart()
+          this.$nextTick(() => {
+            this.$refs.line1.drawLine()
+          })
+        }
+      },
+      editionValue(val) {
+        console.log('ssss')
       }
     },
     components: {
@@ -201,10 +222,37 @@
     },
     mounted() {
       this.$nextTick(() => {
-        this.$refs.line1.drawLine()
         this.$refs.ring1.drawRing()
         this.$refs.ring2.drawRing()
       })
+    },
+    created() {
+      this.$API.GetSurvey({
+        trendValue: this.trendValue,
+        timeRangeValue: this.timeRangeValue,
+        editionValue: this.editionValue
+      }).then( (res) => {
+        this.timeSlotArr = res.data.xAxis
+        this.lines = [{
+          name: res.data.yAxis[0].name,
+          data: res.data.yAxis[0].increment
+        }, {
+          name: res.data.yAxis[1].name,
+          data: res.data.yAxis[1].increment
+        }]
+        this.lines2 = [{
+          name: res.data.yAxis[0].name,
+          data: res.data.yAxis[0].accumulative
+        }, {
+          name: res.data.yAxis[1].name,
+          data: res.data.yAxis[1].accumulative
+        }]
+        this.$nextTick(() => {
+          this.$refs.line1.drawLine()
+        })
+       }).catch(function (error) {
+        console.log(error)
+       })
     }
   }
 </script>

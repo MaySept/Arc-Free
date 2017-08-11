@@ -10,10 +10,11 @@
         </div>
       </div>
       <ul class="bg-bubbles">
-        <li></li><li></li><li></li>
-        <li></li><li></li><li></li>
-        <li></li><li></li><li></li>
-        <li></li>
+        <li></li><li></li>
+        <li></li><li></li>
+        <li></li><li></li>
+        <li></li><li></li>
+        <li></li><li></li>
       </ul>
     </div>
   </div>
@@ -29,7 +30,7 @@
     },
     methods: {
       loginBtn() {
-            /*        api.GetLogin({user:this.userName, password:this.password}).then(function (data) {
+          /*api.GetLogin({user:this.userName, password:this.password}).then(function (data) {
               console.log('成功')
             }).catch(function (error) {
               console.log('失败')

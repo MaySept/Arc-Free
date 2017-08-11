@@ -37,19 +37,19 @@
       ></LineChartHeader>
       <div class="map-list">
         <div class="map-list-">
-          <div class="header">xxxxx</div>
+          <div class="header">{{ringTitle1}}</div>
           <div class="ring-containers">
             <RingChart ref="ring1" chart-id="ring-a" :chart-data="chartData"></RingChart>
           </div>
         </div>
         <div class="map-list-">
-          <div class="header">xxxxxx</div>
+          <div class="header">{{ringTitle2}}</div>
           <div class="ring-containers">
             <RingChart ref="ring2" chart-id="ring-b" :chart-data="chartData"></RingChart>
           </div>
         </div>
         <div class="map-list-">
-          <div class="header">xxxxxx</div>
+          <div class="header">{{ringTitle3}}</div>
           <div class="ring-containers">
             <RingChart ref="ring3" chart-id="ring-c" :chart-data="chartData"></RingChart>
           </div>
@@ -74,6 +74,9 @@
           value: 2,
           label: '不同版本'
         }],
+        ringTitle1: 'Windows',
+        ringTitle2: 'Android ',
+        ringTitle3: 'iOS',
         timeRangeValue: 2,
         trendValue: 1,
         lines : [{
@@ -108,6 +111,22 @@
         }]
       }
     },
+    watch: {
+      timeRangeValue(val) {
+        console.log('123')
+      },
+      trendValue(val) {
+        if(val === 2){
+          this.ringTitle1 = '1:1版本'
+          this.ringTitle2 = '小版本'
+          this.ringTitle3 = '中版本'
+        }else {
+          this.ringTitle1 = 'Windows'
+          this.ringTitle2 = 'Android '
+          this.ringTitle3 = 'iOS'
+        }
+      }
+    },
     components: {
       LineChartHeader,
       LineChart,
@@ -137,6 +156,16 @@
         this.$refs.ring2.drawRing()
         this.$refs.ring3.drawRing()
       })
+    },
+    created() {
+      /*  this.$API.GetDownloadsFR({
+       timeRangeValue: this.timeRangeValue
+       trendValue: this.trendValue
+       }).then(function (data) {
+       console.log('成功')
+       }).catch(function (error) {
+       console.log('失败')
+       })*/
     }
   }
 </script>

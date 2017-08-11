@@ -81,6 +81,11 @@
           '2017-1-8']
       }
     },
+    watch: {
+      timeRangeValue(val) {
+        console.log('sss')
+      }
+    },
     components: {
       LineChartHeader,
       EditionTab,
@@ -107,6 +112,15 @@
       this.$nextTick(() => {
         this.$refs.line1.drawLine()
       })
+    },
+    created() {
+      /*  this.$API.GetTransferFT({
+       timeRangeValue: this.timeRangeValue
+       }).then(function (data) {
+       console.log('成功')
+       }).catch(function (error) {
+       console.log('失败')
+       })*/
     }
   }
 </script>

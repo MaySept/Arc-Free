@@ -7,11 +7,9 @@
   export default{
     data(){
       return{
-//        lines : [{name:"ArcFace",data:[1,2,3,4,7,10,22,23,28,33,34,35]},{name:"PhotoStyling",data:[2,3,4,5,6,7,8,9,20,36,39,46]}],
-//        title : 'xx折线图',
-//        timeSlotArr: ['2017-1-2','2017-1-3','2017-1-4','2017-1-5','2017-1-6','2017-1-7',
-//          '2017-1-8','2017-1-9','2017-1-10','2017-1-11','2017-1-12','2017-1-13']
       }
+    },
+    watch: {
     },
     props: {
       lines: Array, //对象数组，line:[{name,data数组}]
@@ -67,6 +65,7 @@
               }
             },
           },
+
           legend: {
             data: legend_data
           },
@@ -90,10 +89,30 @@
             }
           ],
           dataZoom: [{
-            startValue: (this.timeAxis.length - 10 > 0)?(this.timeAxis.length - 10):0,
+            startValue: (this.timeAxis.length - 30 > 0)?(this.timeAxis.length - 30):0, // 数据较多时一开始显示多少
+//            filterMode:'empty',// 禁止关联使Y轴不能缩放
+            show: false // 滑动条隐藏
           }, {
             type: 'inside'
-          }],
+          },
+            /*    { //滑条样式
+             type: 'slider',
+             show: true,
+             xAxisIndex: [0],
+             handleSize: 20,//滑动条的 左右2个滑动条的大小
+             height: 8,//组件高度
+             left: 30, //左边的距离
+             right: 40,//右边的距离
+             bottom: 30,//右边的距离
+             handleColor: '#ddd',//h滑动图标的颜色
+             handleStyle: {
+             borderColor: "#cacaca",
+             borderWidth: "1",
+             shadowBlur: 2,
+             background: "#ddd",
+             shadowColor: "#ddd",
+             }
+             }*/],
           yAxis : [
             {
               type : 'value',

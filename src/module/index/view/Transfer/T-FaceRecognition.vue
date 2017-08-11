@@ -108,6 +108,11 @@
       AllEditionTab,
       LineChart
     },
+    watch: {
+      timeRangeValue(val) {
+        console.log('sss')
+      }
+    },
     methods: {
       acceptTimeRangeValue(timeRangValue) {
         this.timeRangeValue = timeRangValue
@@ -129,6 +134,15 @@
       this.$nextTick(() => {
         this.$refs.line1.drawLine()
       })
+    },
+    created() {
+      /*  this.$API.GetTransferFR({
+       timeRangeValue: this.timeRangeValue
+       }).then(function (data) {
+       console.log('成功')
+       }).catch(function (error) {
+       console.log('失败')
+       })*/
     }
   }
 </script>

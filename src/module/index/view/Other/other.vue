@@ -3,7 +3,7 @@
     <div class="border-top">
       <div class="search-input">
         <el-input placeholder="请输入查找内容"
-                  v-model="searchValue"
+                  v-model.trim="searchValue"
                   :on-icon-click="handleIconClick"
                   icon="search">
           <el-select v-model="searchType" slot="prepend">
@@ -44,13 +44,13 @@
           <el-table-column
             prop="mobile"
             label="电话"
-            min-width="126"
+            min-width="120"
             align="center">
           </el-table-column>
           <el-table-column
             prop="mailbox"
             label="邮箱"
-            min-width="126"
+            min-width="132"
             align="center">
           </el-table-column>
           <el-table-column
@@ -61,9 +61,15 @@
           </el-table-column>
           <el-table-column
             prop="useSdk"
-            label="SDK使用记录 ▼"
-            min-width="126"
-            align="center">
+            label="SDK调用记录 ▼"
+            min-width="140"
+            align="center" class="sdk-style">
+            <template scope="scope">
+              <p style="font-size: 10px">PhotoStyling:{{scope.row.useSdk}}次</p>
+              <p style="font-size: 10px">ArcFace(FS):{{scope.row.useSdk}}次</p>
+              <p style="font-size: 10px">ArcFace(FT):{{scope.row.useSdk}}次</p>
+              <p style="font-size: 10px">ArcFace(FD):{{scope.row.useSdk}}次</p>
+            </template>
           </el-table-column>
         </el-table>
       </div>
@@ -77,6 +83,8 @@
     data() {
       return {
         emptyIcon: false,
+        isSortCompany: false,
+        isSortSDK: false,
         searchValue: '',
         searchType: '1',
         tableData: [{
@@ -85,7 +93,7 @@
           mobile: '15384077817',
           mailbox: '5454654@qq.com',
           downSdk: 'dadadadad',
-          useSdk: 'asdaadasdad'
+          useSdk: '1220'
         }, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
         total: 500,
         currentPage: 1,
@@ -106,7 +114,16 @@
     },
     methods: {
       handleIconClick(ev) {
-        console.log(ev);
+        const testMobile = /^1(3|4|5|7|8)\d{9}$/
+        if(this.searchValue === '') {
+          this.$message.error('请输入搜索内容');
+          return false
+        }else if(this.searchType === '1' && !testMobile.test(this.searchValue)) {
+          this.$message.error('请输入正确的手机号');
+          return false
+        }else {
+          alert('haha')
+        }
       },
       empty() {
         this.searchValue = ''
@@ -118,12 +135,29 @@
         console.log(this.jumperToPage + '跳转页')
       },
       sortCompany() {
-        console.log('123')
+        if (this.isSortCompany === false) {
+          console.log('排序')
+          this.isSortCompany = true
+        }else {
+          this.$message({
+            message: '已按照个人/公司排序',
+            type: 'success'
+          });
+        }
       },
       sortSdk() {
         console.log('222')
       }
-    }
+    },
+   /* created() {
+    this.$API.GetOther({
+       timeRangeValue: this.timeRangeValue
+       }).then(function (data) {
+       console.log('成功')
+       }).catch(function (error) {
+       console.log('失败')
+       })
+    }*/
   }
 </script>
 <style lang="scss">
@@ -181,6 +215,9 @@
     .sort2 {
       top: 9px;
       right: 10px;
+    }
+    .sdk-style p{
+      font-size: 12px;
     }
   }
 </style>

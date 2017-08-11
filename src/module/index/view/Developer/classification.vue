@@ -55,6 +55,15 @@
         this.$refs.ring1.drawRing()
         this.$refs.ring2.drawRing()
       })
+    },
+    created() {
+      /*this.$API.GetClassification({
+       timeRangeValue: this.timeRangeValue
+       }).then(function (data) {
+       console.log('成功')
+       }).catch(function (error) {
+       console.log('失败')
+       })*/
     }
   }
 </script>

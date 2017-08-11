@@ -51,6 +51,11 @@
           '2017-1-8'],
       }
     },
+    watch: {
+      timeRangeValue(val) {
+        console.log('123')
+      }
+    },
     components: {
       LineChartHeader,
       LineChart
@@ -72,6 +77,15 @@
       this.$nextTick(() => {
         this.$refs.line1.drawLine()
       })
+    },
+    created() {
+    /*  this.$API.GetDownloadsPS({
+       timeRangeValue: this.timeRangeValue
+       }).then(function (data) {
+       console.log('成功')
+       }).catch(function (error) {
+       console.log('失败')
+       })*/
     }
   }
 </script>

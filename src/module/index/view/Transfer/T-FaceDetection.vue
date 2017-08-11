@@ -53,7 +53,21 @@
           ACumulative: 200,
           IAdd: 200,
           ICumulative: 200,
-        }, {}, {}],
+        }, {
+          WAdd: 200,
+          WCumulative: 200,
+          AAdd: 200,
+          ACumulative: 200,
+          IAdd: 200,
+          ICumulative: 200,
+        }, {
+          WAdd: 200,
+          WCumulative: 200,
+          AAdd: 200,
+          ACumulative: 200,
+          IAdd: 200,
+          ICumulative: 200,
+        }],
         timeRangeValue: 2,
         editionValue: 1,
         lines : [{
@@ -79,6 +93,11 @@
         title2 : '堆积折线图',
         timeSlotArr: ['2017-1-2','2017-1-3','2017-1-4','2017-1-5','2017-1-6','2017-1-7',
           '2017-1-8']
+      }
+    },
+    watch: {
+      timeRangeValue(val) {
+        console.log('sss')
       }
     },
     components: {
@@ -107,6 +126,15 @@
       this.$nextTick(() => {
         this.$refs.line1.drawLine()
       })
+    },
+    created() {
+      /*  this.$API.GetTransferFD({
+       timeRangeValue: this.timeRangeValue
+       }).then(function (data) {
+       console.log('成功')
+       }).catch(function (error) {
+       console.log('失败')
+       })*/
     }
   }
 </script>

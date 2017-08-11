@@ -60,6 +60,14 @@
           '2017-1-8'],
       }
     },
+    watch: {
+      trendValue(val) {
+        console.log('sss')
+      },
+      timeRangeValue(val) {
+        console.log('sss')
+      }
+    },
     components: {
       LineChartHeader,
       LineChart
@@ -85,6 +93,16 @@
       this.$nextTick(() => {
         this.$refs.line1.drawLine()
       })
+    },
+    created() {
+       /*this.$API.GetDeveloper({
+       trendValue: this.trendValue,
+       timeRangeValue: this.timeRangeValue
+       }).then(function (data) {
+       console.log('成功')
+       }).catch(function (error) {
+       console.log('失败')
+       })*/
     }
   }
 </script>
